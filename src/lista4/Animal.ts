@@ -4,7 +4,15 @@ export class Animal{
     constructor(nome: string){
         this.nome = nome
     }
-    //fazer set / get
+
+    setNome(nome:string){
+        nome.length <= 30 ? this.nome = nome : (this.nome = " ", console.log('Nome muito grande'))
+    }
+
+    getNome():string{
+        return this.nome
+    }
+
     toString(): string{
         return `Nome: ${this.nome}`
     }

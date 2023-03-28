@@ -8,8 +8,16 @@ export class Cobra extends Animal{
         this.poison = poison
     }
 
+    setPoison(){
+        this.poison 
+    }
+
+    getPoison(){
+        return this.poison
+    }
+
     toString(): string {
-        return `${super.toString()} Poison: ${this.poison}`
+        return `${super.toString()} Poison: ${this.poison ? 'Venenosa' : 'Não venenosa'}`
     }
     
     move(): string{
