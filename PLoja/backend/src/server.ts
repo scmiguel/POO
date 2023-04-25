@@ -1,19 +1,41 @@
+// importa a classe Fastify da dependência fastify
 import Fastify from 'fastify'
+// importa o prisma
 import { PrismaClient } from '@prisma/client'
 
-
-const prisma = new PrismaClient()
+// instanciar o objeto da classe Fastify
 const app = Fastify()
-app.get(`/hello`, () => {
-	return 'Hello World'
+
+// instanciar o objeto da classe PrimaClient
+const prisma = new PrismaClient()
+
+// definir uma rota chamada hello - verbo é GET, uma consulta
+app.get('/hello', () => {
+    return 'Hello World'
 })
-app.get(`/products`, async () => {
+
+// define uma rota que consulta todos os produtos cadastrados no banco de dados
+app.get('/products', async () => {
     const habits = await prisma.product.findMany()
     return habits
 })
-app.listen({
-    port: 3333,
+
+app.get('/productByName', async () => {
+    const habits = await prisma.product.findMany({
+        where: {
+            name: {
+                startsWith: 'X'
+            }
+        }
+    })
+    return habits
 })
-.then( () => {
-    console.log('Http Server running')
+
+// vamos subir o servidor, vamos executá-lo, ele ficará ouvindo
+// e aguardando as requisições
+app.listen({
+    port: 3333
+})
+.then(() => {
+    console.log('HTTP server running and listening requests')
 })
