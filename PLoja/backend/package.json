@@ -1,6 +1,7 @@
 {
-  "name": "ploja",
+  "name": "backend",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts"
@@ -8,16 +9,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@prisma/client": "^4.12.0",
     "dayjs": "^1.11.7",
     "fastify": "^4.15.0",
-    "tsx": "^3.12.6",
-    "typescript": "^5.0.4",
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "prisma": "^4.12.0"
+    "prisma": "^4.12.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4"
   }
 }
